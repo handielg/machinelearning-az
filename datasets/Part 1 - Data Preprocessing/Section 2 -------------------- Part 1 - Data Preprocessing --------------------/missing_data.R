@@ -3,7 +3,7 @@
 dataset = read.csv('Data.csv')
 
 
-# Tratamiento de los valores NA
+# Tratamiento de los valores NA #Este codigo es para reemplazar los valores faltantes por la media de la columna.
 dataset$Age = ifelse(is.na(dataset$Age),
                      ave(dataset$Age, FUN = function(x) mean(x, na.rm = TRUE)),
                      dataset$Age)
