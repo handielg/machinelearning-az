@@ -57,7 +57,7 @@ SL = 0.05
 
 #Se ha añadido el modificador .tolist() al X_opt para adaptarse a Python 3.7
 
-X_opt = X[:, [0, 1, 2, 3, 4, 5]]
+X_opt = X[:, [0, 1, 2, 3, 4, 5]] #esta es la variable que contiene las predictoras, como es el primer paso las contiene todas, ya luego tendra menos a medida que tengamos los p-value.
 regression_OLS = sm.OLS(endog = y, exog = X_opt.tolist()).fit()
 regression_OLS.summary()
 
