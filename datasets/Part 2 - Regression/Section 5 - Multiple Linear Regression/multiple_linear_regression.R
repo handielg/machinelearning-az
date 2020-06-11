@@ -29,6 +29,7 @@ regression = lm(formula = Profit ~ .,
 
 # Predecir los resultados con el conjunto de testing
 y_pred = predict(regression, newdata = testing_set)
+y_pred
 
 # Construir un modelo óptimo con la Eliminación hacia atrás
 SL = 0.05
