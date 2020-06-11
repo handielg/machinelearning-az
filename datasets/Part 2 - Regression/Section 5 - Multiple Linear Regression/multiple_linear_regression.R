@@ -49,6 +49,7 @@ regression = lm(formula = Profit ~ R.D.Spend,
                 data = dataset)
 summary(regression)
 
+plot(regression) #para graficar nuestro modelo.
 
 # Si queremos tener una implementación automática de la eliminación hacia atrás en R, tenemos la siguiente función:
 
