@@ -52,7 +52,7 @@ y_pred = regression.predict(X_test)
 
 # Construir el modelo óptimo de RLM utilizando la Eliminación hacia atrás
 import statsmodels.api as sm
-X = np.append(arr = np.ones((50,1)).astype(int), values = X, axis = 1)
+X = np.append(arr = np.ones((50,1)).astype(int), values = X, axis = 1) #aqui añadimos uns columna de 1 al principio.
 SL = 0.05
 
 #Se ha añadido el modificador .tolist() al X_opt para adaptarse a Python 3.7
