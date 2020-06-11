@@ -50,7 +50,7 @@ regression = lm(formula = Profit ~ R.D.Spend,
 summary(regression)
 
 
-# Si quieremos tener una implementación automática de la eliminación hacia atrás en R:
+# Si queremos tener una implementación automática de la eliminación hacia atrás en R, tenemos la siguiente función:
 
 backwardElimination <- function(x, sl) {
   numVars = length(x)
