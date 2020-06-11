@@ -67,5 +67,5 @@ backwardElimination <- function(x, sl) {
 }
  
 SL = 0.05
-dataset = dataset[, c(1,2,3,4,5)]
+dataset = dataset[, c(1,2,3,4,5)] #aqui ponemos las variables independientes del dataset.
 backwardElimination(training_set, SL)
