@@ -6,7 +6,7 @@ Created on Thu Mar  7 19:04:40 2019
 @author: juangabriel
 """
 
-# Regresión con Árboles de Decisión
+# Regresión con Árboles de Decisión (CART: Classification and regression tree).
 
 # Cómo importar las librerías
 import numpy as np
@@ -33,7 +33,7 @@ X_test = sc_X.transform(X_test)"""
 
 # Ajustar la regresión con el dataset
 from sklearn.tree import DecisionTreeRegressor
-regression = DecisionTreeRegressor(random_state = 0)
+regression = DecisionTreeRegressor(random_state = 0) 
 regression.fit(X, y)
 
 # Predicción de nuestros modelos
@@ -44,7 +44,7 @@ print(y_pred)
 X_grid = np.arange(min(X), max(X), 0.1)
 X_grid = X_grid.reshape(len(X_grid), 1)
 plt.scatter(X, y, color = "red")
-plt.plot(X, regression.predict(X), color = "blue")
+plt.plot(X, regression.predict(X), color = "blue") #Aqui dentro de los paréntesis en vez de poner X_grid, ponemos X, para que nos salga mejor el gráfico.
 plt.title("Modelo de Regresión")
 plt.xlabel("Posición del empleado")
 plt.ylabel("Sueldo (en $)")
