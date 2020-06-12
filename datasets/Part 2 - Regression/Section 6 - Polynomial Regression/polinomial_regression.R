@@ -48,7 +48,7 @@ ggplot() +
   geom_point(aes(x = dataset$Level , y = dataset$Salary),
              color = "red") +
   geom_line(aes(x = x_grid, y = predict(poly_reg, 
-                                        newdata = data.frame(Level = x_grid,      #Aqui le llamamos a level, que es la predictora x_grid, y a las otras columnas igual pero elevado a los coeficientes correspondientes.
+                                        newdata = data.frame(Level = x_grid,      #Aqui le llamamos a level, que es la predictora x_grid,transformada para que el gráfico no sean lineal rectas largas, y a las otras columnas igual pero elevado a los coeficientes correspondientes.
                                                              Level2 = x_grid^2,
                                                              Level3 = x_grid^3,
                                                              Level4 = x_grid^4))),
