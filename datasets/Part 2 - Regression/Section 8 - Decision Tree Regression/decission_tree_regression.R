@@ -13,17 +13,16 @@ dataset = dataset[, 2:3]
 # testing_set = subset(dataset, split == FALSE)
 
 
-# Escalado de valores
+# Escalado de valores. OJO, para los árboles no suele ser necesario escalar, porque no utiliza distancia uclídea.
 # training_set[,2:3] = scale(training_set[,2:3])
 # testing_set[,2:3] = scale(testing_set[,2:3])
 
 
 # Ajustar Modelo de Regresión con el Conjunto de Datos
-# install.packages("rpart")
 library(rpart)
 regression = rpart(formula = Salary ~ .,
                    data = dataset,
-                   control = rpart.control(minsplit = 1))
+                   control = rpart.control(minsplit = 1)) #Este último código lo ponemos porque el árbol no nos divide, nos hace una sola rama, y minsplit = 1, nos permite que se siga dividiendo si hay como mínimo una observación en cada hoja.Trabaja por intervalos el árbol, con pocos datos es poco preciso.
 
 # Predicción de nuevos resultados con Árbol Regresión 
 y_pred = predict(regression, newdata = data.frame(Level = 6.5))
@@ -33,7 +32,7 @@ y_pred = predict(regression, newdata = data.frame(Level = 6.5))
 # Visualización del modelo de árbol de regresión
 # install.packages("ggplot2")
 library(ggplot2)
-x_grid = seq(min(dataset$Level), max(dataset$Level), 0.1)
+x_grid = seq(min(dataset$Level), max(dataset$Level), 0.1) #Para graficar mejor el gráfico.
 ggplot() +
   geom_point(aes(x = dataset$Level , y = dataset$Salary),
              color = "red") +
