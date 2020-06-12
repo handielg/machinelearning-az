@@ -22,11 +22,11 @@ dataset = dataset[, 2:3]
 library(e1071)
 regression = svm(formula = Salary ~ ., 
                  data = dataset, 
-                 type = "eps-regression", 
+                 type = "eps-regression", #"eps-regression" porque es un problema de regresión, si fuera clasificación seria C-classification, u otro, ver información.
                  kernel = "radial")
   
 # Predicción de nuevos resultados con SVR 
-y_pred = predict(regression, newdata = data.frame(Level = 6.5))
+y_pred = predict(regression, newdata = data.frame(Level = 6.5)) #Para predecir el salario con un nivel de 6.5 en la empresa.
 
 # Visualización del modelo de SVR
 # install.packages("ggplot2")
