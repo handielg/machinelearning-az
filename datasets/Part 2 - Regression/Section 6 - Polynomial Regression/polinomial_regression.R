@@ -2,7 +2,7 @@
 
 # Importar el dataset
 dataset = read.csv('Position_Salaries.csv')
-dataset = dataset[, 2:3]
+dataset = dataset[, 2:3] #porque lo primero es la posición del trabajador en la empresa.
 
 # Dividir los datos en conjunto de entrenamiento y conjunto de test
 # install.packages("caTools")
@@ -19,12 +19,13 @@ dataset = dataset[, 2:3]
 
 # Ajustar Modelo de Regresión Lineal con el Conjunto de Datos
 lin_reg = lm(formula = Salary ~ ., 
-             data = dataset)
+             data = dataset) 
+summary(lin_reg) #vemos que el intercepto es negativo, por lo que con x cero, ganaria un salario negativo, por lo que el modelo no funciona.
 
 # Ajustar Modelo de Regresión Polinómica con el Conjunto de Datos
-dataset$Level2 = dataset$Level^2
-dataset$Level3 = dataset$Level^3
-dataset$Level4 = dataset$Level^4
+dataset$Level2 = dataset$Level^2 #añadimos la primera columna con x elevada al cuadrado.
+dataset$Level3 = dataset$Level^3 #añadimos columna con x elevada al cubo.
+dataset$Level4 = dataset$Level^4 #añadimos columna con x elevada a la 4.
 poly_reg = lm(formula = Salary ~ .,
               data = dataset)
 
@@ -47,7 +48,7 @@ ggplot() +
   geom_point(aes(x = dataset$Level , y = dataset$Salary),
              color = "red") +
   geom_line(aes(x = x_grid, y = predict(poly_reg, 
-                                        newdata = data.frame(Level = x_grid,
+                                        newdata = data.frame(Level = x_grid,      #Aqui le llamamos a level, que es la predictora x_grid, y a las otras columnas igual pero elevado a los coeficientes correspondientes.
                                                              Level2 = x_grid^2,
                                                              Level3 = x_grid^3,
                                                              Level4 = x_grid^4))),
@@ -57,7 +58,7 @@ ggplot() +
   ylab("Sueldo (en $)")
 
 # Predicción de nuevos resultados con Regresión Lineal
-y_pred = predict(lin_reg, newdata = data.frame(Level = 6.5))
+y_pred = predict(lin_reg, newdata = data.frame(Level = 6.5)) #Como solo quiero predecir este valor pongo este código. "Level" es el nombre de la variable independiente.
 
 # Predicción de nuevos resultados con Regresión Polinómica
 y_pred_poly = predict(poly_reg, newdata = data.frame(Level = 6.5,
