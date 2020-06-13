@@ -16,8 +16,8 @@ import pandas as pd
 # Importar el data set
 dataset = pd.read_csv('Social_Network_Ads.csv')
 
-X = dataset.iloc[:, [2,3]].values
-y = dataset.iloc[:, 4].values
+X = dataset.iloc[:, [2,3]].values #Aquí escogemos las columnas 2 y 3, index de cuenta, y las columnas empiezan en 0, por lo que estas columnas son "Age" y "Estimated Salary".
+y = dataset.iloc[:, 4].values #Purchased es la variable target.
 
 
 # Dividir el data set en conjunto de entrenamiento y conjunto de testing
