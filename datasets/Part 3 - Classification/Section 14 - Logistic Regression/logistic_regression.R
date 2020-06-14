@@ -22,10 +22,10 @@ classifier = glm(formula = Purchased ~ .,
                  family = binomial)
 
 # Predicción de los resultados con el conjunto de testing
-prob_pred = predict(classifier, type = "response",
+prob_pred = predict(classifier, type = "response", #El vector prob_pred nos da las probabilidades.
                     newdata = testing_set[,-3])
 
-y_pred = ifelse(prob_pred> 0.5, 1, 0)
+y_pred = ifelse(prob_pred> 0.5, 1, 0) #este vector nos da valores 0 y 1, nos da 1 si la probabilidad de compra es superior al 50 %.
 
 # Crear la matriz de confusión
 cm = table(testing_set[, 3], y_pred)
