@@ -35,7 +35,7 @@ X_test = sc_X.transform(X_test)
 
 # Ajustar el SVM en el Conjunto de Entrenamiento
 from sklearn.svm import SVC
-classifier = SVC(kernel = "linear", random_state = 0)
+classifier = SVC(kernel = "linear", random_state = 0) #El kernel es el tipo de clasificador, en este caso una línea.
 classifier.fit(X_train, y_train)
 
 
