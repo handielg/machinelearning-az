@@ -19,7 +19,7 @@ y_hc = cutree(hc, k=5) #La función cutree es para cortar el árbol o dendograma
 y_hc
 # Visualizar los clusters
 #install.packages("cluster")
-library(cluster)
+library(cluster) #con esta libreria y la función clusplot graficamos los clusters.
 clusplot(X, 
          y_hc,
          lines = 0,
