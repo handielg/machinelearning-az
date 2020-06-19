@@ -15,7 +15,7 @@ plot(dendrogram,
 # Ajustar el clustering jerárquico a nuestro dataset
 hc = hclust(dist(X, method = "euclidean"), 
                     method = "ward.D")
-y_hc = cutree(hc, k=5)
+y_hc = cutree(hc, k=5) #La función cutree es para cortar el árbol o dendograma ala altura que queremos.
 
 # Visualizar los clusters
 #install.packages("cluster")
