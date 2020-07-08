@@ -2,17 +2,17 @@
 
 # Importar el data set
 dataset_original = read.delim("Restaurant_Reviews.tsv", quote = '',
-                     stringsAsFactors = FALSE)
+                     stringsAsFactors = FALSE) #stringsAsFactors = FALSE para que no convierta el texto en factores.
 
 # Limpieza de textos
 # install.packages("tm")
 #install.packages("SnowballC")
-library(tm)
+library(tm) #tm = text mining.
 library(SnowballC)
-corpus = VCorpus(VectorSource(dataset_original$Review))
-corpus = tm_map(corpus, content_transformer(tolower))
+corpus = VCorpus(VectorSource(dataset_original$Review)) #convertimos la fuente del texto en vectores, es la columna 1.Y creamos el objeto corpus, que podemos revisar.
+corpus = tm_map(corpus, content_transformer(tolower)) #convertimos todas las palabras a minúsculas, para minimizar el numero de columnas de la matriz Sparce.
 # Consultar el primer elemento del corpus
-# as.character(corpus[[1]])
+# as.character(corpus[[1]]) #vemos la transformacion a minusculas.
 corpus = tm_map(corpus, removeNumbers)
 corpus = tm_map(corpus, removePunctuation)
 corpus = tm_map(corpus, removeWords, stopwords(kind = "en"))
