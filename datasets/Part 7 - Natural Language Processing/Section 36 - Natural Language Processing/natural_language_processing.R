@@ -13,18 +13,18 @@ corpus = VCorpus(VectorSource(dataset_original$Review)) #convertimos la fuente d
 corpus = tm_map(corpus, content_transformer(tolower)) #convertimos todas las palabras a minúsculas, para minimizar el numero de columnas de la matriz Sparce.
 # Consultar el primer elemento del corpus
 # as.character(corpus[[1]]) #vemos la transformacion a minusculas.
-corpus = tm_map(corpus, removeNumbers)
-corpus = tm_map(corpus, removePunctuation)
+corpus = tm_map(corpus, removeNumbers) #Removemos los números.
+corpus = tm_map(corpus, removePunctuation) #Removemos los signos.
 corpus = tm_map(corpus, removeWords, stopwords(kind = "en"))
 corpus = tm_map(corpus, stemDocument)
 corpus = tm_map(corpus, stripWhitespace)
 
 # Crear el modelo Bag of Words
 dtm = DocumentTermMatrix(corpus)
-dtm = removeSparseTerms(dtm, 0.999)
+dtm = removeSparseTerms(dtm, 0.999) #Nos quedamos con el 99.9 % de palabras más frecuentes.Debemos revisar por si eliminamos muchas palabras.
 
-dataset = as.data.frame(as.matrix(dtm))
-dataset$Liked = dataset_original$Liked
+dataset = as.data.frame(as.matrix(dtm)) #Convertimos a dataframe la matriz dispersa.
+dataset$Liked = dataset_original$Liked #Añadimos la columna de datos dependiente.
 
 # Codificar la variable de clasificación como factor
 dataset$Liked = factor(dataset$Liked, levels = c(0,1))
