@@ -12,6 +12,8 @@ Created on Fri Mar  1 12:07:43 2019
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
+from sklearn.linear_model import LinearRegression #para descargar el modelo lineal que vamos a usar.
+
 
 # Importar el data set
 dataset = pd.read_csv('Salary_Data.csv')
@@ -33,7 +35,6 @@ X_test = sc_X.transform(X_test)
 """
 
 # Crear modelo de Regresión Lienal Simple con el conjunto de entrenamiento
-from sklearn.linear_model import LinearRegression
 regression = LinearRegression()
 regression.fit(X_train, y_train)
 
