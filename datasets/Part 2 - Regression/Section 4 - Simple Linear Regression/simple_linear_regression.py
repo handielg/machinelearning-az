@@ -3,7 +3,7 @@
 """
 Created on Fri Mar  1 12:07:43 2019
 
-@author: juangabriel
+@author: handiel
 """
 
 # Regresión Lineal Simple
@@ -16,15 +16,15 @@ import pandas as pd
 # Importar el data set
 dataset = pd.read_csv('Salary_Data.csv')
 X = dataset.iloc[:, :-1].values #selecionamos la variable independiente.
-y = dataset.iloc[:, 1].values #seleccionamos la variable dependiente.
+y = dataset.iloc[:, 1].values #seleccionamos la variable dependiente. En este caso la segunda columna.
 
 
 # Dividir el data set en conjunto de entrenamiento y conjunto de testing
 from sklearn.model_selection import train_test_split
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 1/3, random_state = 0)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 1/3, random_state = 0) #definimos 1/3 para que sea 66 % entrenamiento y 33 % test.
 
 
-# Escalado de variables
+# Escalado de variables. No aplica en este algoritmo.
 """
 from sklearn.preprocessing import StandardScaler
 sc_X = StandardScaler()
@@ -38,7 +38,7 @@ regression = LinearRegression()
 regression.fit(X_train, y_train)
 
 # Predecir el conjunto de test
-y_pred = regression.predict(X_test)
+y_pred = regression.predict(X_test) #X_test solo contiene la primer columna.
 
 # Visualizar los resultados de entrenamiento
 plt.scatter(X_train, y_train, color = "red")
