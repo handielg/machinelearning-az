@@ -41,18 +41,17 @@ regression.fit(X_train, y_train)
 y_pred = regression.predict(X_test) #X_test solo contiene la primer columna.
 
 # Visualizar los resultados de entrenamiento
-plt.scatter(X_train, y_train, color = "red")
-plt.plot(X_train, regression.predict(X_train), color = "blue")
-plt.title("Sueldo vs Años de Experiencia (Conjunto de Entrenamiento)")
-plt.xlabel("Años de Experiencia")
-plt.ylabel("Sueldo (en $)")
+plt.scatter(X_train, y_train, color = "red") #Graficamos los puntos correspondientes al conjunto de entrenamiento.
+plt.plot(X_train, regression.predict(X_train), color = "blue") #Graficamos la línea de la ecuación obtenida en el entrenamiento.
+plt.title("Título del Gráfico (Conjunto de Entrenamiento)")
+plt.xlabel("Etiqueta eje x")
+plt.ylabel("Etiqueta eje y")
 plt.show()
 
 # Visualizar los resultados de test
-plt.scatter(X_test, y_test, color = "red")
-plt.plot(X_train, regression.predict(X_train), color = "blue")
-plt.title("Sueldo vs Años de Experiencia (Conjunto de Testing)")
-plt.xlabel("Años de Experiencia")
-plt.ylabel("Sueldo (en $)")
+plt.scatter(X_test, y_test, color = "red") #Graficamos los puntos de la variable independiente y la variable dependiente predicha por el modelo de regresión.
+plt.plot(X_train, regression.predict(X_train), color = "blue") #Dibujamos la misma línea anterior para ver como se ajustan los puntos predichos.
+plt.title("Título del Gráfico (Conjunto de Testing)")
+plt.xlabel("Etiqueta eje x")
+plt.ylabel("Etiqueta eje y")
 plt.show()
-
