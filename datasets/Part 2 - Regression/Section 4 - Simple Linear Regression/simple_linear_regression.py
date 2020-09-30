@@ -15,8 +15,8 @@ import pandas as pd
 
 # Importar el data set
 dataset = pd.read_csv('Salary_Data.csv')
-X = dataset.iloc[:, :-1].values
-y = dataset.iloc[:, 1].values
+X = dataset.iloc[:, :-1].values #selecionamos la variable independiente.
+y = dataset.iloc[:, 1].values #seleccionamos la variable dependiente.
 
 
 # Dividir el data set en conjunto de entrenamiento y conjunto de testing
